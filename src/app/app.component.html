@@ -1,0 +1,35 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:left; padding: 15px">
+
+  <form #formdemo="ngForm" (ngSubmit)="onsubmit(formdemo.value)">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" name="name" ngModel required class="form-control" #name />
+      {{name.className}}
+    </div>
+
+    <div class="form-group">
+      <label>Old</label>
+      <input type="text" name="old" ngModel required class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Address</label>
+      <input type="text" name="address" ngModel class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>SDT</label>
+      <input type="text" name="sdt" ngModel class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>City</label>
+      <select class="form-control" ngModel name="city">
+        <option *ngFor = "let city of citys" [value]="city.id"> {{city.name}}</option>
+      </select>
+    </div>
+    <button type="submit" (click)="onsubmit" class="btn btn-primary" [disabled]="formdemo.invalid">Submit</button>
+  </form>
+
+</div>
+
+
+<router-outlet></router-outlet>
