@@ -1,22 +1,17 @@
-import { Component } from '@angular/core';
-
+import { Component,OnInit } from '@angular/core';
+import { GetlistService } from './services/getlist.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  onsubmit(value: any) {
-    console.log(value);
-  }
+export class AppComponent implements OnInit {
+ demoe;
+  constructor(private demo: GetlistService){
 
-  citys = [
-    {
-      id: 1,
-      name: 'Hanoi'
-    }, {
-      id: 2,
-      name: 'HCM'
-    }
-  ]
+ }
+ngOnInit(){
+  this.demoe = this.demo.Getlist();
+}
+  
 }
